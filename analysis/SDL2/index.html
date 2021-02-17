@@ -10,11 +10,11 @@
   <body>
     <h1>vice - analyzer results</h1>
     <table>
-      <tr><th>User:</th><td>runner@Mac-1613584357502.local</td></tr>
+      <tr><th>User:</th><td>runner@Mac-1613601688818.local</td></tr>
       <tr><th>Working Directory:</th><td>/Users/runner/work/svn-mirror/svn-mirror/vice</td></tr>
       <tr><th>Command Line:</th><td>/usr/local/bin/scan-build -o ../gh-pages/analysis/SDL2 make -j 3</td></tr>
       <tr><th>Clang Version:</th><td>Apple clang version 12.0.0 (clang-1200.0.32.28)</td></tr>
-      <tr><th>Date:</th><td>Wed Feb 17 18:25:48 2021</td></tr>
+      <tr><th>Date:</th><td>Wed Feb 17 23:18:58 2021</td></tr>
     </table>
     <h2>Bug Summary</h2>
     <table>
@@ -40,32 +40,12 @@
           <th>Dead store</th><th colspan=2></th>
         </tr>
         <tr>
-          <td class="SUMM_DESC">Dead increment</td>
-          <td class="Q">11</td>
-          <td>
-            <center>
-              <input checked type="checkbox"
-                     onClick="ToggleDisplay(this,'bt_dead_store_dead_increment');"/>
-            </center>
-          </td>
-        </tr>
-        <tr>
           <td class="SUMM_DESC">Dead assignment</td>
           <td class="Q">107</td>
           <td>
             <center>
               <input checked type="checkbox"
                      onClick="ToggleDisplay(this,'bt_dead_store_dead_assignment');"/>
-            </center>
-          </td>
-        </tr>
-        <tr>
-          <td class="SUMM_DESC">Dead initialization</td>
-          <td class="Q">10</td>
-          <td>
-            <center>
-              <input checked type="checkbox"
-                     onClick="ToggleDisplay(this,'bt_dead_store_dead_initialization');"/>
             </center>
           </td>
         </tr>
@@ -80,15 +60,35 @@
           </td>
         </tr>
         <tr>
-          <th>Logic error</th><th colspan=2></th>
-        </tr>
-        <tr>
-          <td class="SUMM_DESC">Uninitialized argument value</td>
-          <td class="Q">6</td>
+          <td class="SUMM_DESC">Dead initialization</td>
+          <td class="Q">10</td>
           <td>
             <center>
               <input checked type="checkbox"
-                     onClick="ToggleDisplay(this,'bt_logic_error_uninitialized_argument_value');"/>
+                     onClick="ToggleDisplay(this,'bt_dead_store_dead_initialization');"/>
+            </center>
+          </td>
+        </tr>
+        <tr>
+          <td class="SUMM_DESC">Dead increment</td>
+          <td class="Q">11</td>
+          <td>
+            <center>
+              <input checked type="checkbox"
+                     onClick="ToggleDisplay(this,'bt_dead_store_dead_increment');"/>
+            </center>
+          </td>
+        </tr>
+        <tr>
+          <th>Logic error</th><th colspan=2></th>
+        </tr>
+        <tr>
+          <td class="SUMM_DESC">Dereference of null pointer</td>
+          <td class="Q">12</td>
+          <td>
+            <center>
+              <input checked type="checkbox"
+                     onClick="ToggleDisplay(this,'bt_logic_error_dereference_of_null_pointer');"/>
             </center>
           </td>
         </tr>
@@ -103,22 +103,22 @@
           </td>
         </tr>
         <tr>
+          <td class="SUMM_DESC">Uninitialized argument value</td>
+          <td class="Q">6</td>
+          <td>
+            <center>
+              <input checked type="checkbox"
+                     onClick="ToggleDisplay(this,'bt_logic_error_uninitialized_argument_value');"/>
+            </center>
+          </td>
+        </tr>
+        <tr>
           <td class="SUMM_DESC">Assigned value is garbage or undefined</td>
           <td class="Q">2</td>
           <td>
             <center>
               <input checked type="checkbox"
                      onClick="ToggleDisplay(this,'bt_logic_error_assigned_value_is_garbage_or_undefined');"/>
-            </center>
-          </td>
-        </tr>
-        <tr>
-          <td class="SUMM_DESC">Dereference of null pointer</td>
-          <td class="Q">12</td>
-          <td>
-            <center>
-              <input checked type="checkbox"
-                     onClick="ToggleDisplay(this,'bt_logic_error_dereference_of_null_pointer');"/>
             </center>
           </td>
         </tr>
@@ -196,1006 +196,6 @@
       </thead>
       <tbody>
 <!-- REPORTBUGCOL -->
-        <tr class="bt_dead_store_dead_increment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead increment</td>
-          <td>src/c64/cart/ocean.c</td>
-          <td class="DESC">ocean_io1_store</td>
-          <td class="Q">103</td>
-          <td class="Q">1</td>
-          <td><a href="report-e4e237.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-e4e237.html" -->
-        <tr class="bt_dead_store_dead_increment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead increment</td>
-          <td>src/vic20/vic20via2.c</td>
-          <td class="DESC">store_pcr</td>
-          <td class="Q">187</td>
-          <td class="Q">1</td>
-          <td><a href="report-d30f48.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-d30f48.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">804</td>
-          <td class="Q">1</td>
-          <td><a href="report-10fe48.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-10fe48.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/drive/drive-snapshot.c</td>
-          <td class="DESC">drive_snapshot_write_image_module</td>
-          <td class="Q">855</td>
-          <td class="Q">1</td>
-          <td><a href="report-453afc.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-453afc.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">779</td>
-          <td class="Q">1</td>
-          <td><a href="report-8a5180.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-8a5180.html" -->
-        <tr class="bt_dead_store_dead_increment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead increment</td>
-          <td>src/core/ciatimer.h</td>
-          <td class="DESC">ciat_set_alarm</td>
-          <td class="Q">201</td>
-          <td class="Q">1</td>
-          <td><a href="report-d4acf8.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-d4acf8.html" -->
-        <tr class="bt_dead_store_dead_initialization">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead initialization</td>
-          <td>src/c1541.c</td>
-          <td class="DESC">copy_cmd</td>
-          <td class="Q">2115</td>
-          <td class="Q">1</td>
-          <td><a href="report-32b7c5.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-32b7c5.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/drive/drive-snapshot.c</td>
-          <td class="DESC">drive_snapshot_read_image_module</td>
-          <td class="Q">994</td>
-          <td class="Q">1</td>
-          <td><a href="report-85b5c2.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-85b5c2.html" -->
-        <tr class="bt_logic_error_uninitialized_argument_value">
-          <td class="DESC">Logic error</td>
-          <td class="DESC">Uninitialized argument value</td>
-          <td>src/monitor/mon_assemble6809.c</td>
-          <td class="DESC">mon_assemble_instr</td>
-          <td class="Q">236</td>
-          <td class="Q">25</td>
-          <td><a href="report-9df27e.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-9df27e.html" -->
-        <tr class="bt_dead_store_dead_nested_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead nested assignment</td>
-          <td>src/monitor/mon_breakpoint.c</td>
-          <td class="DESC">mon_breakpoint_switch_checkpoint</td>
-          <td class="Q">291</td>
-          <td class="Q">1</td>
-          <td><a href="report-d1847a.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-d1847a.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">808</td>
-          <td class="Q">1</td>
-          <td><a href="report-86937e.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-86937e.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/c64/psid.c</td>
-          <td class="DESC">mus_extract_credits</td>
-          <td class="Q">864</td>
-          <td class="Q">1</td>
-          <td><a href="report-9d74da.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-9d74da.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/plus4/ted-mem.c</td>
-          <td class="DESC">ted_local_store_vbank_32k</td>
-          <td class="Q">142</td>
-          <td class="Q">1</td>
-          <td><a href="report-09f065.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-09f065.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/tapeport/tapecart.c</td>
-          <td class="DESC">cmdmode_dispatch_command</td>
-          <td class="Q">1339</td>
-          <td class="Q">1</td>
-          <td><a href="report-a47599.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-a47599.html" -->
-        <tr class="bt_dead_store_dead_nested_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead nested assignment</td>
-          <td>src/pet/petrom.c</td>
-          <td class="DESC">petrom_load_kernal</td>
-          <td class="Q">614</td>
-          <td class="Q">1</td>
-          <td><a href="report-d6c5e7.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-d6c5e7.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">673</td>
-          <td class="Q">1</td>
-          <td><a href="report-972646.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-972646.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">623</td>
-          <td class="Q">1</td>
-          <td><a href="report-1896a2.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-1896a2.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/core/viacore.c</td>
-          <td class="DESC">viacore_snapshot_read_module</td>
-          <td class="Q">1376</td>
-          <td class="Q">1</td>
-          <td><a href="report-544949.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-544949.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/mididrv/midi-osx-drv.c</td>
-          <td class="DESC">message_len</td>
-          <td class="Q">197</td>
-          <td class="Q">1</td>
-          <td><a href="report-59ac1f.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-59ac1f.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/c64/cart/mmcreplay.c</td>
-          <td class="DESC">mmcreplay_update_mapper_nolog</td>
-          <td class="Q">902</td>
-          <td class="Q">1</td>
-          <td><a href="report-c73bb8.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-c73bb8.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/diskimage/fsimage-probe.c</td>
-          <td class="DESC">disk_image_check_for_d71</td>
-          <td class="Q">203</td>
-          <td class="Q">1</td>
-          <td><a href="report-942aa2.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-942aa2.html" -->
-        <tr class="bt_logic_error_result_of_operation_is_garbage_or_undefined">
-          <td class="DESC">Logic error</td>
-          <td class="DESC">Result of operation is garbage or undefined</td>
-          <td>src/monitor/mon_file.c</td>
-          <td class="DESC">mon_file_verify</td>
-          <td class="Q">364</td>
-          <td class="Q">18</td>
-          <td><a href="report-65be9a.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-65be9a.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">625</td>
-          <td class="Q">1</td>
-          <td><a href="report-1fedcf.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-1fedcf.html" -->
-        <tr class="bt_dead_store_dead_nested_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead nested assignment</td>
-          <td>src/c64/cart/c64cart.c</td>
-          <td class="DESC">try_cartridge_attach</td>
-          <td class="Q">343</td>
-          <td class="Q">1</td>
-          <td><a href="report-db7f19.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-db7f19.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/core/t6721.c</td>
-          <td class="DESC">render_subframe</td>
-          <td class="Q">420</td>
-          <td class="Q">1</td>
-          <td><a href="report-6a156c.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-6a156c.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">787</td>
-          <td class="Q">1</td>
-          <td><a href="report-3319a2.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-3319a2.html" -->
-        <tr class="bt_dead_store_dead_nested_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead nested assignment</td>
-          <td>src/diskimage/fsimage-probe.c</td>
-          <td class="DESC">disk_image_check_for_d1m</td>
-          <td class="Q">562</td>
-          <td class="Q">1</td>
-          <td><a href="report-d54eb0.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-d54eb0.html" -->
-        <tr class="bt_dead_store_dead_increment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead increment</td>
-          <td>src/video/render2x2.c</td>
-          <td class="DESC">render_08_2x2_04</td>
-          <td class="Q">98</td>
-          <td class="Q">1</td>
-          <td><a href="report-ffb8b3.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-ffb8b3.html" -->
-        <tr class="bt_logic_error_assigned_value_is_garbage_or_undefined">
-          <td class="DESC">Logic error</td>
-          <td class="DESC">Assigned value is garbage or undefined</td>
-          <td>src/vdc/vdc-draw.c</td>
-          <td class="DESC">calculate_draw_masks</td>
-          <td class="Q">251</td>
-          <td class="Q">14</td>
-          <td><a href="report-5e95aa.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-5e95aa.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/plus4/ted-mem.c</td>
-          <td class="DESC">ted_local_store_vbank_16k</td>
-          <td class="Q">178</td>
-          <td class="Q">1</td>
-          <td><a href="report-66fc96.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-66fc96.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">747</td>
-          <td class="Q">1</td>
-          <td><a href="report-cf7866.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-cf7866.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">697</td>
-          <td class="Q">1</td>
-          <td><a href="report-714606.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-714606.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/c64/cart/mmcreplay.c</td>
-          <td class="DESC">mmcreplay_update_mapper_nolog</td>
-          <td class="Q">653</td>
-          <td class="Q">1</td>
-          <td><a href="report-ac40b9.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-ac40b9.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/c1541.c</td>
-          <td class="DESC">match_sub_pattern</td>
-          <td class="Q">3174</td>
-          <td class="Q">1</td>
-          <td><a href="report-af372c.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-af372c.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sound.c</td>
-          <td class="DESC">sound_flush</td>
-          <td class="Q">1396</td>
-          <td class="Q">1</td>
-          <td><a href="report-2b7b38.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-2b7b38.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">667</td>
-          <td class="Q">1</td>
-          <td><a href="report-718189.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-718189.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">810</td>
-          <td class="Q">1</td>
-          <td><a href="report-6d3452.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-6d3452.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">603</td>
-          <td class="Q">1</td>
-          <td><a href="report-4d9796.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-4d9796.html" -->
-        <tr class="bt_logic_error_result_of_operation_is_garbage_or_undefined">
-          <td class="DESC">Logic error</td>
-          <td class="DESC">Result of operation is garbage or undefined</td>
-          <td>src/vicii/vicii-sprites.c</td>
-          <td class="DESC">draw_hires_sprite_expanded</td>
-          <td class="Q">645</td>
-          <td class="Q">39</td>
-          <td><a href="report-973502.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-973502.html" -->
-        <tr class="bt_logic_error_uninitialized_argument_value">
-          <td class="DESC">Logic error</td>
-          <td class="DESC">Uninitialized argument value</td>
-          <td>src/monitor/mon_file.c</td>
-          <td class="DESC">mon_file_load</td>
-          <td class="Q">227</td>
-          <td class="Q">18</td>
-          <td><a href="report-a39368.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-a39368.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">699</td>
-          <td class="Q">1</td>
-          <td><a href="report-6bd4de.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-6bd4de.html" -->
-        <tr class="bt_dead_store_dead_increment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead increment</td>
-          <td>src/plus4/ted-fetch.c</td>
-          <td class="DESC">ted_fetch_alarm_handler</td>
-          <td class="Q">224</td>
-          <td class="Q">1</td>
-          <td><a href="report-9e79c4.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-9e79c4.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/monitor/asm6809.c</td>
-          <td class="DESC">asm_addr_mode_get_size</td>
-          <td class="Q">944</td>
-          <td class="Q">1</td>
-          <td><a href="report-913da3.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-913da3.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/diskimage/fsimage-probe.c</td>
-          <td class="DESC">disk_image_check_for_d64</td>
-          <td class="Q">93</td>
-          <td class="Q">1</td>
-          <td><a href="report-a640dc.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-a640dc.html" -->
-        <tr class="bt_dead_store_dead_nested_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead nested assignment</td>
-          <td>src/diskimage/fsimage-probe.c</td>
-          <td class="DESC">disk_image_check_for_d80</td>
-          <td class="Q">342</td>
-          <td class="Q">1</td>
-          <td><a href="report-be49e8.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-be49e8.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">649</td>
-          <td class="Q">1</td>
-          <td><a href="report-6fa6d2.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-6fa6d2.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/mididrv/midi-osx-drv.c</td>
-          <td class="DESC">message_len</td>
-          <td class="Q">189</td>
-          <td class="Q">1</td>
-          <td><a href="report-aaa59f.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-aaa59f.html" -->
-        <tr class="bt_dead_store_dead_nested_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead nested assignment</td>
-          <td>src/diskimage/fsimage-probe.c</td>
-          <td class="DESC">disk_image_check_for_d71</td>
-          <td class="Q">217</td>
-          <td class="Q">1</td>
-          <td><a href="report-790d01.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-790d01.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/tape/tap.c</td>
-          <td class="DESC">tap_cbm_skip_pilot</td>
-          <td class="Q">413</td>
-          <td class="Q">1</td>
-          <td><a href="report-9556c8.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-9556c8.html" -->
-        <tr class="bt_dead_store_dead_nested_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead nested assignment</td>
-          <td>src/diskimage/fsimage-probe.c</td>
-          <td class="DESC">disk_image_check_for_d2m</td>
-          <td class="Q">605</td>
-          <td class="Q">1</td>
-          <td><a href="report-be5439.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-be5439.html" -->
-        <tr class="bt_dead_store_dead_initialization">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead initialization</td>
-          <td>src/video/render1x1pal.c</td>
-          <td class="DESC">render_generic_1x1_pal</td>
-          <td class="Q">164</td>
-          <td class="Q">1</td>
-          <td><a href="report-0dbe27.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-0dbe27.html" -->
-        <tr class="bt_dead_store_dead_increment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead increment</td>
-          <td>src/video/render2x4.c</td>
-          <td class="DESC">render_08_2x4_04</td>
-          <td class="Q">98</td>
-          <td class="Q">1</td>
-          <td><a href="report-1e22cf.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-1e22cf.html" -->
-        <tr class="bt_logic_error_result_of_operation_is_garbage_or_undefined">
-          <td class="DESC">Logic error</td>
-          <td class="DESC">Result of operation is garbage or undefined</td>
-          <td>src/viciivsid/viciivsid-sprites.c</td>
-          <td class="DESC">draw_hires_sprite_expanded</td>
-          <td class="Q">646</td>
-          <td class="Q">39</td>
-          <td><a href="report-b5a5dc.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-b5a5dc.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">643</td>
-          <td class="Q">1</td>
-          <td><a href="report-105fd8.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-105fd8.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">671</td>
-          <td class="Q">1</td>
-          <td><a href="report-04e6e7.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-04e6e7.html" -->
-        <tr class="bt_logic_error_dereference_of_null_pointer">
-          <td class="DESC">Logic error</td>
-          <td class="DESC">Dereference of null pointer</td>
-          <td>src/event.c</td>
-          <td class="DESC">event_snapshot_read_module</td>
-          <td class="Q">1082</td>
-          <td class="Q">24</td>
-          <td><a href="report-73244f.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-73244f.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">763</td>
-          <td class="Q">1</td>
-          <td><a href="report-3ff1e6.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-3ff1e6.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/core/spi-sdcard.c</td>
-          <td class="DESC">mmc_execute_cmd</td>
-          <td class="Q">675</td>
-          <td class="Q">1</td>
-          <td><a href="report-71672e.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-71672e.html" -->
-        <tr class="bt_dead_store_dead_nested_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead nested assignment</td>
-          <td>src/diskimage/fsimage-probe.c</td>
-          <td class="DESC">disk_image_check_for_d67</td>
-          <td class="Q">168</td>
-          <td class="Q">1</td>
-          <td><a href="report-cf64e3.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-cf64e3.html" -->
-        <tr class="bt_logic_error_dereference_of_null_pointer">
-          <td class="DESC">Logic error</td>
-          <td class="DESC">Dereference of null pointer</td>
-          <td>src/c64/c64io.c</td>
-          <td class="DESC">io_source_register</td>
-          <td class="Q">464</td>
-          <td class="Q">3</td>
-          <td><a href="report-a8bc3e.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-a8bc3e.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">730</td>
-          <td class="Q">1</td>
-          <td><a href="report-0f084f.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-0f084f.html" -->
-        <tr class="bt_dead_store_dead_initialization">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead initialization</td>
-          <td>src/video/render1x1crt.c</td>
-          <td class="DESC">render_generic_1x1_crt</td>
-          <td class="Q">163</td>
-          <td class="Q">1</td>
-          <td><a href="report-471d66.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-471d66.html" -->
-        <tr class="bt_logic_error_uninitialized_argument_value">
-          <td class="DESC">Logic error</td>
-          <td class="DESC">Uninitialized argument value</td>
-          <td>src/monitor/mon_assemble6809.c</td>
-          <td class="DESC">mon_assemble_instr</td>
-          <td class="Q">236</td>
-          <td class="Q">26</td>
-          <td><a href="report-3c0c58.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-3c0c58.html" -->
-        <tr class="bt_logic_error_uninitialized_argument_value">
-          <td class="DESC">Logic error</td>
-          <td class="DESC">Uninitialized argument value</td>
-          <td>src/c64/c64-resources.c</td>
-          <td class="DESC">set_kernal_revision</td>
-          <td class="Q">205</td>
-          <td class="Q">11</td>
-          <td><a href="report-b06855.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-b06855.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">707</td>
-          <td class="Q">1</td>
-          <td><a href="report-7329c7.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-7329c7.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">837</td>
-          <td class="Q">1</td>
-          <td><a href="report-2785d7.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-2785d7.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">587</td>
-          <td class="Q">1</td>
-          <td><a href="report-25f08d.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-25f08d.html" -->
-        <tr class="bt_dead_store_dead_nested_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead nested assignment</td>
-          <td>src/diskimage/fsimage-probe.c</td>
-          <td class="DESC">disk_image_check_for_d4m</td>
-          <td class="Q">649</td>
-          <td class="Q">1</td>
-          <td><a href="report-621fb5.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-621fb5.html" -->
-        <tr class="bt_logic_error_result_of_operation_is_garbage_or_undefined">
-          <td class="DESC">Logic error</td>
-          <td class="DESC">Result of operation is garbage or undefined</td>
-          <td>src/vicii/vicii-sprites.c</td>
-          <td class="DESC">draw_hires_sprite_expanded</td>
-          <td class="Q">648</td>
-          <td class="Q">39</td>
-          <td><a href="report-f624af.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-f624af.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">601</td>
-          <td class="Q">1</td>
-          <td><a href="report-53fcaa.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-53fcaa.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">825</td>
-          <td class="Q">1</td>
-          <td><a href="report-a75b9e.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-a75b9e.html" -->
-        <tr class="bt_dead_store_dead_increment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead increment</td>
-          <td>src/plus4/ted-fetch.c</td>
-          <td class="DESC">ted_fetch_alarm_handler</td>
-          <td class="Q">225</td>
-          <td class="Q">1</td>
-          <td><a href="report-1c2546.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-1c2546.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/core/ata.c</td>
-          <td class="DESC">seek_sector</td>
-          <td class="Q">239</td>
-          <td class="Q">1</td>
-          <td><a href="report-e1de66.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-e1de66.html" -->
-        <tr class="bt_dead_store_dead_initialization">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead initialization</td>
-          <td>src/video/render1x1pal.c</td>
-          <td class="DESC">render_generic_1x1_pal</td>
-          <td class="Q">165</td>
-          <td class="Q">1</td>
-          <td><a href="report-5bce4d.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-5bce4d.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">705</td>
-          <td class="Q">1</td>
-          <td><a href="report-15e337.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-15e337.html" -->
-        <tr class="bt_dead_store_dead_increment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead increment</td>
-          <td>src/c64/cart/rexramfloppy.c</td>
-          <td class="DESC">rexramfloppy_io2_peek</td>
-          <td class="Q">110</td>
-          <td class="Q">1</td>
-          <td><a href="report-28563f.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-28563f.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">605</td>
-          <td class="Q">1</td>
-          <td><a href="report-445eca.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-445eca.html" -->
-        <tr class="bt_dead_store_dead_nested_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead nested assignment</td>
-          <td>src/zipcode.c</td>
-          <td class="DESC">zipcode_read_sector</td>
-          <td class="Q">82</td>
-          <td class="Q">1</td>
-          <td><a href="report-3cddda.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-3cddda.html" -->
-        <tr class="bt_logic_error_uninitialized_argument_value">
-          <td class="DESC">Logic error</td>
-          <td class="DESC">Uninitialized argument value</td>
-          <td>src/c64/c64rom.c</td>
-          <td class="DESC">c64rom_load_kernal</td>
-          <td class="Q">174</td>
-          <td class="Q">25</td>
-          <td><a href="report-39cfc6.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-39cfc6.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">800</td>
-          <td class="Q">1</td>
-          <td><a href="report-848a10.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-848a10.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">589</td>
-          <td class="Q">1</td>
-          <td><a href="report-0296bb.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-0296bb.html" -->
-        <tr class="bt_logic_error_dangerous_construct_in_a_vforked_process">
-          <td class="DESC">Logic error</td>
-          <td class="DESC">Dangerous construct in a vforked process</td>
-          <td>src/arch/shared/archdep_spawn.c</td>
-          <td class="DESC">archdep_spawn</td>
-          <td class="Q">102</td>
-          <td class="Q">10</td>
-          <td><a href="report-e7d9f4.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-e7d9f4.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">765</td>
-          <td class="Q">1</td>
-          <td><a href="report-320053.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-320053.html" -->
-        <tr class="bt_logic_error_result_of_operation_is_garbage_or_undefined">
-          <td class="DESC">Logic error</td>
-          <td class="DESC">Result of operation is garbage or undefined</td>
-          <td>src/c64/cart/blackbox8.c</td>
-          <td class="DESC">blackbox8_config_setup</td>
-          <td class="Q">129</td>
-          <td class="Q">6</td>
-          <td><a href="report-1051f6.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-1051f6.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/core/viacore.c</td>
-          <td class="DESC">viacore_snapshot_read_module</td>
-          <td class="Q">1371</td>
-          <td class="Q">1</td>
-          <td><a href="report-e19be8.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-e19be8.html" -->
-        <tr class="bt_dead_store_dead_increment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead increment</td>
-          <td>src/monitor/monitor_binary.c</td>
-          <td class="DESC">monitor_binary_process_mem_get</td>
-          <td class="Q">1405</td>
-          <td class="Q">1</td>
-          <td><a href="report-cd564d.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-cd564d.html" -->
-        <tr class="bt_dead_store_dead_nested_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead nested assignment</td>
-          <td>src/zipcode.c</td>
-          <td class="DESC">zipcode_read_sector</td>
-          <td class="Q">59</td>
-          <td class="Q">1</td>
-          <td><a href="report-8f0b0b.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-8f0b0b.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">785</td>
-          <td class="Q">1</td>
-          <td><a href="report-f605bb.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-f605bb.html" -->
-        <tr class="bt_logic_error_dereference_of_null_pointer">
-          <td class="DESC">Logic error</td>
-          <td class="DESC">Dereference of null pointer</td>
-          <td>src/plus4/plus4io.c</td>
-          <td class="DESC">io_source_register</td>
-          <td class="Q">427</td>
-          <td class="Q">3</td>
-          <td><a href="report-416ea2.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-416ea2.html" -->
-        <tr class="bt_dead_store_dead_nested_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead nested assignment</td>
-          <td>src/monitor/mon_breakpoint.c</td>
-          <td class="DESC">mon_breakpoint_delete_checkpoint</td>
-          <td class="Q">400</td>
-          <td class="Q">1</td>
-          <td><a href="report-5ee672.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-5ee672.html" -->
-        <tr class="bt_logic_error_dereference_of_null_pointer">
-          <td class="DESC">Logic error</td>
-          <td class="DESC">Dereference of null pointer</td>
-          <td>src/pet/petio.c</td>
-          <td class="DESC">io_source_register</td>
-          <td class="Q">467</td>
-          <td class="Q">3</td>
-          <td><a href="report-546e5e.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-546e5e.html" -->
-        <tr class="bt_logic_error_unix_api">
-          <td class="DESC">Logic error</td>
-          <td class="DESC">Unix API</td>
-          <td>src/lib.c</td>
-          <td class="DESC">lib_strdup</td>
-          <td class="Q">702</td>
-          <td class="Q">5</td>
-          <td><a href="report-941639.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-941639.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">749</td>
-          <td class="Q">1</td>
-          <td><a href="report-360529.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-360529.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">831</td>
-          <td class="Q">1</td>
-          <td><a href="report-c8c6ae.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-c8c6ae.html" -->
-        <tr class="bt_logic_error_assigned_value_is_garbage_or_undefined">
-          <td class="DESC">Logic error</td>
-          <td class="DESC">Assigned value is garbage or undefined</td>
-          <td>src/vdrive/vdrive.c</td>
-          <td class="DESC">vdrive_set_disk_geometry</td>
-          <td class="Q">697</td>
-          <td class="Q">25</td>
-          <td><a href="report-3cbe20.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-3cbe20.html" -->
-        <tr class="bt_dead_store_dead_nested_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead nested assignment</td>
-          <td>src/arch/sdl/menu_help.c</td>
-          <td class="DESC">show_text</td>
-          <td class="Q">256</td>
-          <td class="Q">1</td>
-          <td><a href="report-fab281.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-fab281.html" -->
-        <tr class="bt_logic_error_dereference_of_null_pointer">
-          <td class="DESC">Logic error</td>
-          <td class="DESC">Dereference of null pointer</td>
-          <td>src/vic20/vic20io.c</td>
-          <td class="DESC">io_source_register</td>
-          <td class="Q">410</td>
-          <td class="Q">3</td>
-          <td><a href="report-f3e781.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-f3e781.html" -->
-        <tr class="bt_logic_error_dereference_of_null_pointer">
-          <td class="DESC">Logic error</td>
-          <td class="DESC">Dereference of null pointer</td>
-          <td>src/tapeport/tapeport.c</td>
-          <td class="DESC">tapeport_device_unregister</td>
-          <td class="Q">125</td>
-          <td class="Q">8</td>
-          <td><a href="report-3cf52d.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-3cf52d.html" -->
-        <tr class="bt_logic_error_dangerous_construct_in_a_vforked_process">
-          <td class="DESC">Logic error</td>
-          <td class="DESC">Dangerous construct in a vforked process</td>
-          <td>src/arch/shared/archdep_spawn.c</td>
-          <td class="DESC">archdep_spawn</td>
-          <td class="Q">106</td>
-          <td class="Q">9</td>
-          <td><a href="report-de901b.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-de901b.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">835</td>
-          <td class="Q">1</td>
-          <td><a href="report-246b23.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-246b23.html" -->
         <tr class="bt_dead_store_dead_assignment">
           <td class="DESC">Dead store</td>
           <td class="DESC">Dead assignment</td>
@@ -1203,639 +203,29 @@
           <td class="DESC">mmcreplay_update_mapper_nolog</td>
           <td class="Q">652</td>
           <td class="Q">1</td>
-          <td><a href="report-677537.html#EndPath">View Report</a></td>
+          <td><a href="report-0884c4.html#EndPath">View Report</a></td>
         </tr>
-<!-- REPORTBUG id="report-677537.html" -->
-        <tr class="bt_logic_error_garbage_return_value">
-          <td class="DESC">Logic error</td>
-          <td class="DESC">Garbage return value</td>
-          <td>src/vic20/vic20mem.c</td>
-          <td class="DESC">mem_bank_from_name</td>
-          <td class="Q">638</td>
-          <td class="Q">13</td>
-          <td><a href="report-21aba6.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-21aba6.html" -->
+<!-- REPORTBUG id="report-0884c4.html" -->
         <tr class="bt_dead_store_dead_assignment">
           <td class="DESC">Dead store</td>
           <td class="DESC">Dead assignment</td>
-          <td>src/sounddrv/soundcoreaudio.c</td>
-          <td class="DESC">determine_output_device_id</td>
-          <td class="Q">380</td>
-          <td class="Q">1</td>
-          <td><a href="report-97f8dc.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-97f8dc.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">709</td>
-          <td class="Q">1</td>
-          <td><a href="report-5785c9.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-5785c9.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">669</td>
-          <td class="Q">1</td>
-          <td><a href="report-6eaa48.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-6eaa48.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">833</td>
-          <td class="Q">1</td>
-          <td><a href="report-39c8d2.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-39c8d2.html" -->
-        <tr class="bt_logic_error_dereference_of_null_pointer">
-          <td class="DESC">Logic error</td>
-          <td class="DESC">Dereference of null pointer</td>
-          <td>src/sounddrv/soundflac.c</td>
-          <td class="DESC">flac_init</td>
-          <td class="Q">94</td>
-          <td class="Q">10</td>
-          <td><a href="report-ce5c39.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-ce5c39.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/mididrv/midi-osx-drv.c</td>
-          <td class="DESC">message_len</td>
-          <td class="Q">206</td>
-          <td class="Q">1</td>
-          <td><a href="report-623c2a.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-623c2a.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">703</td>
-          <td class="Q">1</td>
-          <td><a href="report-6eee9c.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-6eee9c.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/video/render2x4.c</td>
-          <td class="DESC">render_24_2x4_04</td>
-          <td class="Q">244</td>
-          <td class="Q">1</td>
-          <td><a href="report-ece4c5.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-ece4c5.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">781</td>
-          <td class="Q">1</td>
-          <td><a href="report-9288f2.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-9288f2.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/c64/cart/mmcreplay.c</td>
-          <td class="DESC">mmcreplay_update_mapper_nolog</td>
-          <td class="Q">776</td>
-          <td class="Q">1</td>
-          <td><a href="report-db7e96.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-db7e96.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">802</td>
-          <td class="Q">1</td>
-          <td><a href="report-1c4146.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-1c4146.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">827</td>
-          <td class="Q">1</td>
-          <td><a href="report-acf994.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-acf994.html" -->
-        <tr class="bt_dead_store_dead_nested_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead nested assignment</td>
-          <td>src/diskimage/fsimage-probe.c</td>
-          <td class="DESC">disk_image_check_for_d82</td>
-          <td class="Q">384</td>
-          <td class="Q">1</td>
-          <td><a href="report-22a373.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-22a373.html" -->
-        <tr class="bt_logic_error_garbage_return_value">
-          <td class="DESC">Logic error</td>
-          <td class="DESC">Garbage return value</td>
-          <td>src/resid/spline.h</td>
-          <td class="DESC">x</td>
-          <td class="Q">190</td>
-          <td class="Q">14</td>
-          <td><a href="report-b961ac.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-b961ac.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">677</td>
-          <td class="Q">1</td>
-          <td><a href="report-cbbc17.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-cbbc17.html" -->
-        <tr class="bt_logic_error_dereference_of_null_pointer">
-          <td class="DESC">Logic error</td>
-          <td class="DESC">Dereference of null pointer</td>
-          <td>src/userport/userport.c</td>
-          <td class="DESC">userport_detach_devices</td>
-          <td class="Q">170</td>
-          <td class="Q">16</td>
-          <td><a href="report-701861.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-701861.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/mididrv/midi-osx-drv.c</td>
-          <td class="DESC">mididrv_out</td>
-          <td class="Q">429</td>
-          <td class="Q">1</td>
-          <td><a href="report-26c993.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-26c993.html" -->
-        <tr class="bt_logic_error_unix_api">
-          <td class="DESC">Logic error</td>
-          <td class="DESC">Unix API</td>
-          <td>src/resources.c</td>
-          <td class="DESC">resource_create_event_data</td>
-          <td class="Q">428</td>
-          <td class="Q">17</td>
-          <td><a href="report-786aef.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-786aef.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/gfxoutputdrv/ffmpegdrv.c</td>
-          <td class="DESC">ffmpegmovie_encode_audio</td>
-          <td class="Q">568</td>
-          <td class="Q">1</td>
-          <td><a href="report-4631e3.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-4631e3.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">619</td>
-          <td class="Q">1</td>
-          <td><a href="report-497a94.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-497a94.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/drive/drive-snapshot.c</td>
-          <td class="DESC">drive_snapshot_write_module</td>
-          <td class="Q">245</td>
-          <td class="Q">1</td>
-          <td><a href="report-49cf3a.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-49cf3a.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">783</td>
-          <td class="Q">1</td>
-          <td><a href="report-c29c28.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-c29c28.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/monitor/mon_lex.c</td>
-          <td class="DESC">yylex</td>
-          <td class="Q">3972</td>
-          <td class="Q">1</td>
-          <td><a href="report-37c6d0.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-37c6d0.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/c64/cart/mmcreplay.c</td>
-          <td class="DESC">mmcreplay_update_mapper_nolog</td>
-          <td class="Q">777</td>
-          <td class="Q">1</td>
-          <td><a href="report-b277fc.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-b277fc.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">736</td>
-          <td class="Q">1</td>
-          <td><a href="report-bf4696.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-bf4696.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">647</td>
-          <td class="Q">1</td>
-          <td><a href="report-1fa7ae.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-1fa7ae.html" -->
-        <tr class="bt_logic_error_dereference_of_null_pointer">
-          <td class="DESC">Logic error</td>
-          <td class="DESC">Dereference of null pointer</td>
-          <td>src/printerdrv/output-select.c</td>
-          <td class="DESC">output_select_register</td>
-          <td class="Q">226</td>
-          <td class="Q">5</td>
-          <td><a href="report-58f79c.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-58f79c.html" -->
-        <tr class="bt_security_potential_insecure_implementation-specific_behavior_in_call_vfork">
-          <td class="DESC">Security</td>
-          <td class="DESC">Potential insecure implementation-specific behavior in call &apos;vfork&apos;</td>
-          <td>src/arch/shared/archdep_spawn.c</td>
-          <td class="DESC">archdep_spawn</td>
-          <td class="Q">96</td>
-          <td class="Q">1</td>
-          <td><a href="report-5cad02.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-5cad02.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">751</td>
-          <td class="Q">1</td>
-          <td><a href="report-3320ce.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-3320ce.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/findpath.c</td>
-          <td class="DESC">findpath</td>
-          <td class="Q">131</td>
-          <td class="Q">1</td>
-          <td><a href="report-3017ee.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-3017ee.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/mididrv/midi-osx-drv.c</td>
-          <td class="DESC">message_len</td>
-          <td class="Q">192</td>
-          <td class="Q">1</td>
-          <td><a href="report-634acf.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-634acf.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">701</td>
-          <td class="Q">1</td>
-          <td><a href="report-a8c18c.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-a8c18c.html" -->
-        <tr class="bt_dead_store_dead_nested_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead nested assignment</td>
-          <td>src/monitor/mon_breakpoint.c</td>
-          <td class="DESC">mon_breakpoint_switch_checkpoint</td>
-          <td class="Q">286</td>
-          <td class="Q">1</td>
-          <td><a href="report-f33da0.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-f33da0.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/c1541.c</td>
-          <td class="DESC">extract_cmd_common</td>
-          <td class="Q">2882</td>
-          <td class="Q">1</td>
-          <td><a href="report-aabb24.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-aabb24.html" -->
-        <tr class="bt_dead_store_dead_increment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead increment</td>
-          <td>src/vicii/viciidtv-draw.c</td>
-          <td class="DESC">_draw_ext_text_cached</td>
-          <td class="Q">1030</td>
-          <td class="Q">1</td>
-          <td><a href="report-17754a.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-17754a.html" -->
-        <tr class="bt_dead_store_dead_initialization">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead initialization</td>
-          <td>src/video/render1x1ntsc.c</td>
-          <td class="DESC">render_generic_1x1_ntsc</td>
-          <td class="Q">170</td>
-          <td class="Q">1</td>
-          <td><a href="report-dc769c.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-dc769c.html" -->
-        <tr class="bt_logic_error_dereference_of_null_pointer">
-          <td class="DESC">Logic error</td>
-          <td class="DESC">Dereference of null pointer</td>
-          <td>src/printerdrv/driver-select.c</td>
-          <td class="DESC">driver_select_register</td>
-          <td class="Q">217</td>
-          <td class="Q">5</td>
-          <td><a href="report-0581f9.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-0581f9.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/rs232drv/rsuser.c</td>
-          <td class="DESC">rsuser_get_rx_bit</td>
-          <td class="Q">450</td>
-          <td class="Q">1</td>
-          <td><a href="report-ca4d1e.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-ca4d1e.html" -->
-        <tr class="bt_dead_store_dead_nested_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead nested assignment</td>
-          <td>src/pet/petrom.c</td>
-          <td class="DESC">petrom_load_6809rom</td>
-          <td class="Q">780</td>
-          <td class="Q">1</td>
-          <td><a href="report-ea5b14.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-ea5b14.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sound.c</td>
-          <td class="DESC">sound_flush</td>
-          <td class="Q">1371</td>
-          <td class="Q">1</td>
-          <td><a href="report-8e158b.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-8e158b.html" -->
-        <tr class="bt_logic_error_dereference_of_null_pointer">
-          <td class="DESC">Logic error</td>
-          <td class="DESC">Dereference of null pointer</td>
-          <td>src/cbm2/cbm2io.c</td>
-          <td class="DESC">io_source_register</td>
-          <td class="Q">459</td>
-          <td class="Q">4</td>
-          <td><a href="report-3e2058.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-3e2058.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/lib/p64/p64.c</td>
-          <td class="DESC">P64ImageWriteToStream</td>
-          <td class="Q">1120</td>
-          <td class="Q">1</td>
-          <td><a href="report-95ba97.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-95ba97.html" -->
-        <tr class="bt_logic_error_uninitialized_argument_value">
-          <td class="DESC">Logic error</td>
-          <td class="DESC">Uninitialized argument value</td>
-          <td>src/c64/c64rom.c</td>
-          <td class="DESC">c64rom_load_kernal</td>
-          <td class="Q">138</td>
-          <td class="Q">19</td>
-          <td><a href="report-9f2c91.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-9f2c91.html" -->
-        <tr class="bt_dead_store_dead_initialization">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead initialization</td>
-          <td>src/c1541.c</td>
-          <td class="DESC">copy_cmd</td>
-          <td class="Q">2116</td>
-          <td class="Q">1</td>
-          <td><a href="report-b63ffa.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-b63ffa.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/monitor/monitor_binary.c</td>
-          <td class="DESC">monitor_binary_process_registers_available</td>
-          <td class="Q">1057</td>
-          <td class="Q">1</td>
-          <td><a href="report-ed3802.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-ed3802.html" -->
-        <tr class="bt_dead_store_dead_nested_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead nested assignment</td>
-          <td>src/arch/sdl/menu_help.c</td>
-          <td class="DESC">show_text</td>
-          <td class="Q">249</td>
-          <td class="Q">1</td>
-          <td><a href="report-270b1d.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-270b1d.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/raster/raster-resources.c</td>
-          <td class="DESC">set_video_cache_enabled</td>
-          <td class="Q">69</td>
-          <td class="Q">1</td>
-          <td><a href="report-323f36.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-323f36.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/c64/cart/mmcreplay.c</td>
-          <td class="DESC">mmcreplay_update_mapper_nolog</td>
-          <td class="Q">898</td>
-          <td class="Q">1</td>
-          <td><a href="report-ce3233.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-ce3233.html" -->
-        <tr class="bt_dead_store_dead_increment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead increment</td>
-          <td>src/core/fmopl.c</td>
-          <td class="DESC">OPLCreate</td>
-          <td class="Q">1543</td>
-          <td class="Q">1</td>
-          <td><a href="report-d8c6fc.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-d8c6fc.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/drive/iec/iec-resources.c</td>
-          <td class="DESC">set_drive_fixed</td>
-          <td class="Q">188</td>
-          <td class="Q">1</td>
-          <td><a href="report-070502.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-070502.html" -->
-        <tr class="bt_dead_store_dead_initialization">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead initialization</td>
-          <td>src/c1541.c</td>
-          <td class="DESC">list_cmd</td>
-          <td class="Q">3301</td>
-          <td class="Q">1</td>
-          <td><a href="report-b0ce3a.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-b0ce3a.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/drive/drive-snapshot.c</td>
-          <td class="DESC">drive_snapshot_read_module</td>
-          <td class="Q">546</td>
-          <td class="Q">1</td>
-          <td><a href="report-b394e4.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-b394e4.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td>src/core/spi-sdcard.c</td>
+          <td class="DESC">mmc_execute_cmd</td>
           <td class="Q">675</td>
           <td class="Q">1</td>
-          <td><a href="report-2a07da.html#EndPath">View Report</a></td>
+          <td><a href="report-01a84d.html#EndPath">View Report</a></td>
         </tr>
-<!-- REPORTBUG id="report-2a07da.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/tape/tap.c</td>
-          <td class="DESC">tap_cbm_skip_pilot</td>
-          <td class="Q">395</td>
-          <td class="Q">1</td>
-          <td><a href="report-de453e.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-de453e.html" -->
+<!-- REPORTBUG id="report-01a84d.html" -->
         <tr class="bt_dead_store_dead_assignment">
           <td class="DESC">Dead store</td>
           <td class="DESC">Dead assignment</td>
           <td>src/sid/sid.c</td>
           <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">767</td>
+          <td class="Q">785</td>
           <td class="Q">1</td>
-          <td><a href="report-79914f.html#EndPath">View Report</a></td>
+          <td><a href="report-46cab0.html#EndPath">View Report</a></td>
         </tr>
-<!-- REPORTBUG id="report-79914f.html" -->
-        <tr class="bt_dead_store_dead_initialization">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead initialization</td>
-          <td>src/video/render1x1crt.c</td>
-          <td class="DESC">render_generic_1x1_crt</td>
-          <td class="Q">162</td>
-          <td class="Q">1</td>
-          <td><a href="report-1335d8.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-1335d8.html" -->
-        <tr class="bt_dead_store_dead_nested_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead nested assignment</td>
-          <td>src/diskimage/fsimage-probe.c</td>
-          <td class="DESC">disk_image_check_for_d81</td>
-          <td class="Q">264</td>
-          <td class="Q">1</td>
-          <td><a href="report-55cdd3.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-55cdd3.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/drive/drive.c</td>
-          <td class="DESC">drive_init</td>
-          <td class="Q">200</td>
-          <td class="Q">1</td>
-          <td><a href="report-029f32.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-029f32.html" -->
-        <tr class="bt_logic_error_division_by_zero">
-          <td class="DESC">Logic error</td>
-          <td class="DESC">Division by zero</td>
-          <td>src/vic20/vic20sound.c</td>
-          <td class="DESC">vic_sound_machine_calculate_samples</td>
-          <td class="Q">291</td>
-          <td class="Q">10</td>
-          <td><a href="report-7ba728.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-7ba728.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">621</td>
-          <td class="Q">1</td>
-          <td><a href="report-020ae9.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-020ae9.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/arch/sdl/uimsgbox.c</td>
-          <td class="DESC">handle_message_box</td>
-          <td class="Q">199</td>
-          <td class="Q">1</td>
-          <td><a href="report-2eee7b.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-2eee7b.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/sid/sid.c</td>
-          <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">645</td>
-          <td class="Q">1</td>
-          <td><a href="report-1b749f.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-1b749f.html" -->
+<!-- REPORTBUG id="report-46cab0.html" -->
         <tr class="bt_dead_store_dead_assignment">
           <td class="DESC">Dead store</td>
           <td class="DESC">Dead assignment</td>
@@ -1843,59 +233,59 @@
           <td class="DESC">fsimage_create_dxm</td>
           <td class="Q">179</td>
           <td class="Q">1</td>
-          <td><a href="report-d964b6.html#EndPath">View Report</a></td>
+          <td><a href="report-7b019c.html#EndPath">View Report</a></td>
         </tr>
-<!-- REPORTBUG id="report-d964b6.html" -->
+<!-- REPORTBUG id="report-7b019c.html" -->
         <tr class="bt_dead_store_dead_assignment">
           <td class="DESC">Dead store</td>
           <td class="DESC">Dead assignment</td>
           <td>src/sid/sid.c</td>
           <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">829</td>
+          <td class="Q">605</td>
           <td class="Q">1</td>
-          <td><a href="report-10c949.html#EndPath">View Report</a></td>
+          <td><a href="report-534e6d.html#EndPath">View Report</a></td>
         </tr>
-<!-- REPORTBUG id="report-10c949.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/monitor/mon_breakpoint.c</td>
-          <td class="DESC">mon_breakpoint_switch_checkpoint</td>
-          <td class="Q">280</td>
-          <td class="Q">1</td>
-          <td><a href="report-2749a6.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-2749a6.html" -->
+<!-- REPORTBUG id="report-534e6d.html" -->
         <tr class="bt_dead_store_dead_assignment">
           <td class="DESC">Dead store</td>
           <td class="DESC">Dead assignment</td>
           <td>src/sid/sid.c</td>
           <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">577</td>
+          <td class="Q">779</td>
           <td class="Q">1</td>
-          <td><a href="report-09a644.html#EndPath">View Report</a></td>
+          <td><a href="report-db7858.html#EndPath">View Report</a></td>
         </tr>
-<!-- REPORTBUG id="report-09a644.html" -->
-        <tr class="bt_dead_store_dead_assignment">
+<!-- REPORTBUG id="report-db7858.html" -->
+        <tr class="bt_dead_store_dead_nested_assignment">
           <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/plus4/ted-mem.c</td>
-          <td class="DESC">ted_local_store_vbank</td>
-          <td class="Q">106</td>
+          <td class="DESC">Dead nested assignment</td>
+          <td>src/diskimage/fsimage-probe.c</td>
+          <td class="DESC">disk_image_check_for_d67</td>
+          <td class="Q">168</td>
           <td class="Q">1</td>
-          <td><a href="report-298115.html#EndPath">View Report</a></td>
+          <td><a href="report-25d98f.html#EndPath">View Report</a></td>
         </tr>
-<!-- REPORTBUG id="report-298115.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
+<!-- REPORTBUG id="report-25d98f.html" -->
+        <tr class="bt_logic_error_dereference_of_null_pointer">
+          <td class="DESC">Logic error</td>
+          <td class="DESC">Dereference of null pointer</td>
           <td>src/sounddrv/soundflac.c</td>
           <td class="DESC">flac_init</td>
-          <td class="Q">91</td>
-          <td class="Q">1</td>
-          <td><a href="report-c45653.html#EndPath">View Report</a></td>
+          <td class="Q">94</td>
+          <td class="Q">10</td>
+          <td><a href="report-0ef0b4.html#EndPath">View Report</a></td>
         </tr>
-<!-- REPORTBUG id="report-c45653.html" -->
+<!-- REPORTBUG id="report-0ef0b4.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">831</td>
+          <td class="Q">1</td>
+          <td><a href="report-4aabf6.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-4aabf6.html" -->
         <tr class="bt_dead_store_dead_initialization">
           <td class="DESC">Dead store</td>
           <td class="DESC">Dead initialization</td>
@@ -1903,19 +293,59 @@
           <td class="DESC">render_generic_1x1_ntsc</td>
           <td class="Q">169</td>
           <td class="Q">1</td>
-          <td><a href="report-98ffff.html#EndPath">View Report</a></td>
+          <td><a href="report-5ad206.html#EndPath">View Report</a></td>
         </tr>
-<!-- REPORTBUG id="report-98ffff.html" -->
-        <tr class="bt_logic_error_dereference_of_null_pointer">
-          <td class="DESC">Logic error</td>
-          <td class="DESC">Dereference of null pointer</td>
-          <td>src/userport/userport.c</td>
-          <td class="DESC">userport_detach_devices</td>
-          <td class="Q">148</td>
-          <td class="Q">18</td>
-          <td><a href="report-97f893.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-5ad206.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/plus4/ted-mem.c</td>
+          <td class="DESC">ted_local_store_vbank_32k</td>
+          <td class="Q">142</td>
+          <td class="Q">1</td>
+          <td><a href="report-3c65eb.html#EndPath">View Report</a></td>
         </tr>
-<!-- REPORTBUG id="report-97f893.html" -->
+<!-- REPORTBUG id="report-3c65eb.html" -->
+        <tr class="bt_dead_store_dead_increment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead increment</td>
+          <td>src/plus4/ted-fetch.c</td>
+          <td class="DESC">ted_fetch_alarm_handler</td>
+          <td class="Q">224</td>
+          <td class="Q">1</td>
+          <td><a href="report-008eeb.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-008eeb.html" -->
+        <tr class="bt_dead_store_dead_increment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead increment</td>
+          <td>src/core/ciatimer.h</td>
+          <td class="DESC">ciat_set_alarm</td>
+          <td class="Q">201</td>
+          <td class="Q">1</td>
+          <td><a href="report-249c92.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-249c92.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">619</td>
+          <td class="Q">1</td>
+          <td><a href="report-e712bd.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-e712bd.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/findpath.c</td>
+          <td class="DESC">findpath</td>
+          <td class="Q">131</td>
+          <td class="Q">1</td>
+          <td><a href="report-e0f8e1.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-e0f8e1.html" -->
         <tr class="bt_dead_store_dead_assignment">
           <td class="DESC">Dead store</td>
           <td class="DESC">Dead assignment</td>
@@ -1923,69 +353,69 @@
           <td class="DESC">sid_sound_machine_calculate_samples</td>
           <td class="Q">738</td>
           <td class="Q">1</td>
-          <td><a href="report-4ab0a8.html#EndPath">View Report</a></td>
+          <td><a href="report-61ac57.html#EndPath">View Report</a></td>
         </tr>
-<!-- REPORTBUG id="report-4ab0a8.html" -->
+<!-- REPORTBUG id="report-61ac57.html" -->
         <tr class="bt_logic_error_result_of_operation_is_garbage_or_undefined">
           <td class="DESC">Logic error</td>
           <td class="DESC">Result of operation is garbage or undefined</td>
-          <td>src/viciivsid/viciivsid-sprites.c</td>
+          <td>src/vicii/vicii-sprites.c</td>
           <td class="DESC">draw_hires_sprite_expanded</td>
-          <td class="Q">649</td>
+          <td class="Q">645</td>
           <td class="Q">39</td>
-          <td><a href="report-5babcf.html#EndPath">View Report</a></td>
+          <td><a href="report-56754a.html#EndPath">View Report</a></td>
         </tr>
-<!-- REPORTBUG id="report-5babcf.html" -->
+<!-- REPORTBUG id="report-56754a.html" -->
+        <tr class="bt_dead_store_dead_nested_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead nested assignment</td>
+          <td>src/arch/sdl/menu_help.c</td>
+          <td class="DESC">show_text</td>
+          <td class="Q">256</td>
+          <td class="Q">1</td>
+          <td><a href="report-4145c2.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-4145c2.html" -->
         <tr class="bt_dead_store_dead_assignment">
           <td class="DESC">Dead store</td>
           <td class="DESC">Dead assignment</td>
           <td>src/sid/sid.c</td>
           <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">641</td>
+          <td class="Q">603</td>
           <td class="Q">1</td>
-          <td><a href="report-188f55.html#EndPath">View Report</a></td>
+          <td><a href="report-94e1aa.html#EndPath">View Report</a></td>
         </tr>
-<!-- REPORTBUG id="report-188f55.html" -->
+<!-- REPORTBUG id="report-94e1aa.html" -->
         <tr class="bt_dead_store_dead_assignment">
           <td class="DESC">Dead store</td>
           <td class="DESC">Dead assignment</td>
-          <td>src/fsdevice/fsdevice-flush.c</td>
-          <td class="DESC">fsdevice_flush_write_byte</td>
-          <td class="Q">850</td>
+          <td>src/core/viacore.c</td>
+          <td class="DESC">viacore_snapshot_read_module</td>
+          <td class="Q">1376</td>
           <td class="Q">1</td>
-          <td><a href="report-873baa.html#EndPath">View Report</a></td>
+          <td><a href="report-b628d4.html#EndPath">View Report</a></td>
         </tr>
-<!-- REPORTBUG id="report-873baa.html" -->
-        <tr class="bt_dead_store_dead_initialization">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead initialization</td>
-          <td>src/userport/userport.c</td>
-          <td class="DESC">userport_detect_collision</td>
-          <td class="Q">191</td>
-          <td class="Q">1</td>
-          <td><a href="report-6cabd4.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-6cabd4.html" -->
-        <tr class="bt_dead_store_dead_assignment">
-          <td class="DESC">Dead store</td>
-          <td class="DESC">Dead assignment</td>
-          <td>src/gfxoutputdrv/nativedrv.c</td>
-          <td class="DESC">native_crtc_render</td>
-          <td class="Q">778</td>
-          <td class="Q">1</td>
-          <td><a href="report-c334e9.html#EndPath">View Report</a></td>
-        </tr>
-<!-- REPORTBUG id="report-c334e9.html" -->
+<!-- REPORTBUG id="report-b628d4.html" -->
         <tr class="bt_dead_store_dead_assignment">
           <td class="DESC">Dead store</td>
           <td class="DESC">Dead assignment</td>
           <td>src/sid/sid.c</td>
           <td class="DESC">sid_sound_machine_calculate_samples</td>
-          <td class="Q">806</td>
+          <td class="Q">833</td>
           <td class="Q">1</td>
-          <td><a href="report-ece4ed.html#EndPath">View Report</a></td>
+          <td><a href="report-412011.html#EndPath">View Report</a></td>
         </tr>
-<!-- REPORTBUG id="report-ece4ed.html" -->
+<!-- REPORTBUG id="report-412011.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">829</td>
+          <td class="Q">1</td>
+          <td><a href="report-b9cac2.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-b9cac2.html" -->
         <tr class="bt_dead_store_dead_assignment">
           <td class="DESC">Dead store</td>
           <td class="DESC">Dead assignment</td>
@@ -1993,9 +423,1579 @@
           <td class="DESC">sid_sound_machine_calculate_samples</td>
           <td class="Q">761</td>
           <td class="Q">1</td>
-          <td><a href="report-c4ea9d.html#EndPath">View Report</a></td>
+          <td><a href="report-cd33da.html#EndPath">View Report</a></td>
         </tr>
-<!-- REPORTBUG id="report-c4ea9d.html" -->
+<!-- REPORTBUG id="report-cd33da.html" -->
+        <tr class="bt_logic_error_dereference_of_null_pointer">
+          <td class="DESC">Logic error</td>
+          <td class="DESC">Dereference of null pointer</td>
+          <td>src/tapeport/tapeport.c</td>
+          <td class="DESC">tapeport_device_unregister</td>
+          <td class="Q">125</td>
+          <td class="Q">8</td>
+          <td><a href="report-469dae.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-469dae.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">699</td>
+          <td class="Q">1</td>
+          <td><a href="report-05c0f9.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-05c0f9.html" -->
+        <tr class="bt_logic_error_uninitialized_argument_value">
+          <td class="DESC">Logic error</td>
+          <td class="DESC">Uninitialized argument value</td>
+          <td>src/monitor/mon_file.c</td>
+          <td class="DESC">mon_file_load</td>
+          <td class="Q">227</td>
+          <td class="Q">18</td>
+          <td><a href="report-ac7e04.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-ac7e04.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">800</td>
+          <td class="Q">1</td>
+          <td><a href="report-a8c54c.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-a8c54c.html" -->
+        <tr class="bt_dead_store_dead_initialization">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead initialization</td>
+          <td>src/c1541.c</td>
+          <td class="DESC">copy_cmd</td>
+          <td class="Q">2116</td>
+          <td class="Q">1</td>
+          <td><a href="report-a41e8a.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-a41e8a.html" -->
+        <tr class="bt_dead_store_dead_nested_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead nested assignment</td>
+          <td>src/diskimage/fsimage-probe.c</td>
+          <td class="DESC">disk_image_check_for_d81</td>
+          <td class="Q">264</td>
+          <td class="Q">1</td>
+          <td><a href="report-4fb5fb.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-4fb5fb.html" -->
+        <tr class="bt_logic_error_dereference_of_null_pointer">
+          <td class="DESC">Logic error</td>
+          <td class="DESC">Dereference of null pointer</td>
+          <td>src/printerdrv/output-select.c</td>
+          <td class="DESC">output_select_register</td>
+          <td class="Q">226</td>
+          <td class="Q">5</td>
+          <td><a href="report-b4ae5f.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-b4ae5f.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">804</td>
+          <td class="Q">1</td>
+          <td><a href="report-e419f4.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-e419f4.html" -->
+        <tr class="bt_logic_error_assigned_value_is_garbage_or_undefined">
+          <td class="DESC">Logic error</td>
+          <td class="DESC">Assigned value is garbage or undefined</td>
+          <td>src/vdc/vdc-draw.c</td>
+          <td class="DESC">calculate_draw_masks</td>
+          <td class="Q">251</td>
+          <td class="Q">14</td>
+          <td><a href="report-c9258e.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-c9258e.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">736</td>
+          <td class="Q">1</td>
+          <td><a href="report-e79a38.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-e79a38.html" -->
+        <tr class="bt_logic_error_result_of_operation_is_garbage_or_undefined">
+          <td class="DESC">Logic error</td>
+          <td class="DESC">Result of operation is garbage or undefined</td>
+          <td>src/viciivsid/viciivsid-sprites.c</td>
+          <td class="DESC">draw_hires_sprite_expanded</td>
+          <td class="Q">646</td>
+          <td class="Q">39</td>
+          <td><a href="report-d3cd62.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-d3cd62.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/drive/drive.c</td>
+          <td class="DESC">drive_init</td>
+          <td class="Q">200</td>
+          <td class="Q">1</td>
+          <td><a href="report-d2c091.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-d2c091.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">703</td>
+          <td class="Q">1</td>
+          <td><a href="report-8a998b.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-8a998b.html" -->
+        <tr class="bt_dead_store_dead_increment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead increment</td>
+          <td>src/c64/cart/rexramfloppy.c</td>
+          <td class="DESC">rexramfloppy_io2_peek</td>
+          <td class="Q">110</td>
+          <td class="Q">1</td>
+          <td><a href="report-317865.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-317865.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/arch/sdl/uimsgbox.c</td>
+          <td class="DESC">handle_message_box</td>
+          <td class="Q">199</td>
+          <td class="Q">1</td>
+          <td><a href="report-c3dff9.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-c3dff9.html" -->
+        <tr class="bt_dead_store_dead_nested_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead nested assignment</td>
+          <td>src/diskimage/fsimage-probe.c</td>
+          <td class="DESC">disk_image_check_for_d2m</td>
+          <td class="Q">605</td>
+          <td class="Q">1</td>
+          <td><a href="report-8141a3.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-8141a3.html" -->
+        <tr class="bt_dead_store_dead_nested_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead nested assignment</td>
+          <td>src/zipcode.c</td>
+          <td class="DESC">zipcode_read_sector</td>
+          <td class="Q">82</td>
+          <td class="Q">1</td>
+          <td><a href="report-ab0a27.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-ab0a27.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sounddrv/soundcoreaudio.c</td>
+          <td class="DESC">determine_output_device_id</td>
+          <td class="Q">380</td>
+          <td class="Q">1</td>
+          <td><a href="report-a54336.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-a54336.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">587</td>
+          <td class="Q">1</td>
+          <td><a href="report-c37fe5.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-c37fe5.html" -->
+        <tr class="bt_dead_store_dead_initialization">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead initialization</td>
+          <td>src/userport/userport.c</td>
+          <td class="DESC">userport_detect_collision</td>
+          <td class="Q">191</td>
+          <td class="Q">1</td>
+          <td><a href="report-4250b3.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-4250b3.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/mididrv/midi-osx-drv.c</td>
+          <td class="DESC">message_len</td>
+          <td class="Q">189</td>
+          <td class="Q">1</td>
+          <td><a href="report-20b36e.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-20b36e.html" -->
+        <tr class="bt_logic_error_dangerous_construct_in_a_vforked_process">
+          <td class="DESC">Logic error</td>
+          <td class="DESC">Dangerous construct in a vforked process</td>
+          <td>src/arch/shared/archdep_spawn.c</td>
+          <td class="DESC">archdep_spawn</td>
+          <td class="Q">102</td>
+          <td class="Q">10</td>
+          <td><a href="report-67920e.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-67920e.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">601</td>
+          <td class="Q">1</td>
+          <td><a href="report-af0bf4.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-af0bf4.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/gfxoutputdrv/nativedrv.c</td>
+          <td class="DESC">native_crtc_render</td>
+          <td class="Q">778</td>
+          <td class="Q">1</td>
+          <td><a href="report-430673.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-430673.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">730</td>
+          <td class="Q">1</td>
+          <td><a href="report-758e1e.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-758e1e.html" -->
+        <tr class="bt_dead_store_dead_increment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead increment</td>
+          <td>src/vicii/viciidtv-draw.c</td>
+          <td class="DESC">_draw_ext_text_cached</td>
+          <td class="Q">1030</td>
+          <td class="Q">1</td>
+          <td><a href="report-24b078.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-24b078.html" -->
+        <tr class="bt_dead_store_dead_initialization">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead initialization</td>
+          <td>src/video/render1x1crt.c</td>
+          <td class="DESC">render_generic_1x1_crt</td>
+          <td class="Q">163</td>
+          <td class="Q">1</td>
+          <td><a href="report-2ccf57.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-2ccf57.html" -->
+        <tr class="bt_security_potential_insecure_implementation-specific_behavior_in_call_vfork">
+          <td class="DESC">Security</td>
+          <td class="DESC">Potential insecure implementation-specific behavior in call &apos;vfork&apos;</td>
+          <td>src/arch/shared/archdep_spawn.c</td>
+          <td class="DESC">archdep_spawn</td>
+          <td class="Q">96</td>
+          <td class="Q">1</td>
+          <td><a href="report-140d4f.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-140d4f.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">671</td>
+          <td class="Q">1</td>
+          <td><a href="report-ba835f.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-ba835f.html" -->
+        <tr class="bt_logic_error_dereference_of_null_pointer">
+          <td class="DESC">Logic error</td>
+          <td class="DESC">Dereference of null pointer</td>
+          <td>src/userport/userport.c</td>
+          <td class="DESC">userport_detach_devices</td>
+          <td class="Q">148</td>
+          <td class="Q">18</td>
+          <td><a href="report-3a946c.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-3a946c.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">837</td>
+          <td class="Q">1</td>
+          <td><a href="report-8f744a.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-8f744a.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">667</td>
+          <td class="Q">1</td>
+          <td><a href="report-644a2a.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-644a2a.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">621</td>
+          <td class="Q">1</td>
+          <td><a href="report-ff99b6.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-ff99b6.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sound.c</td>
+          <td class="DESC">sound_flush</td>
+          <td class="Q">1396</td>
+          <td class="Q">1</td>
+          <td><a href="report-7664fc.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-7664fc.html" -->
+        <tr class="bt_dead_store_dead_increment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead increment</td>
+          <td>src/vic20/vic20via2.c</td>
+          <td class="DESC">store_pcr</td>
+          <td class="Q">187</td>
+          <td class="Q">1</td>
+          <td><a href="report-177cba.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-177cba.html" -->
+        <tr class="bt_logic_error_unix_api">
+          <td class="DESC">Logic error</td>
+          <td class="DESC">Unix API</td>
+          <td>src/resources.c</td>
+          <td class="DESC">resource_create_event_data</td>
+          <td class="Q">428</td>
+          <td class="Q">17</td>
+          <td><a href="report-037717.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-037717.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sounddrv/soundflac.c</td>
+          <td class="DESC">flac_init</td>
+          <td class="Q">91</td>
+          <td class="Q">1</td>
+          <td><a href="report-e765ec.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-e765ec.html" -->
+        <tr class="bt_dead_store_dead_increment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead increment</td>
+          <td>src/c64/cart/ocean.c</td>
+          <td class="DESC">ocean_io1_store</td>
+          <td class="Q">103</td>
+          <td class="Q">1</td>
+          <td><a href="report-aaf00c.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-aaf00c.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">827</td>
+          <td class="Q">1</td>
+          <td><a href="report-6e3ea5.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-6e3ea5.html" -->
+        <tr class="bt_logic_error_uninitialized_argument_value">
+          <td class="DESC">Logic error</td>
+          <td class="DESC">Uninitialized argument value</td>
+          <td>src/c64/c64-resources.c</td>
+          <td class="DESC">set_kernal_revision</td>
+          <td class="Q">205</td>
+          <td class="Q">11</td>
+          <td><a href="report-30c68d.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-30c68d.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/rs232drv/rsuser.c</td>
+          <td class="DESC">rsuser_get_rx_bit</td>
+          <td class="Q">450</td>
+          <td class="Q">1</td>
+          <td><a href="report-0efcf6.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-0efcf6.html" -->
+        <tr class="bt_logic_error_uninitialized_argument_value">
+          <td class="DESC">Logic error</td>
+          <td class="DESC">Uninitialized argument value</td>
+          <td>src/c64/c64rom.c</td>
+          <td class="DESC">c64rom_load_kernal</td>
+          <td class="Q">174</td>
+          <td class="Q">25</td>
+          <td><a href="report-ebca63.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-ebca63.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/fsdevice/fsdevice-flush.c</td>
+          <td class="DESC">fsdevice_flush_write_byte</td>
+          <td class="Q">850</td>
+          <td class="Q">1</td>
+          <td><a href="report-6c7f88.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-6c7f88.html" -->
+        <tr class="bt_dead_store_dead_nested_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead nested assignment</td>
+          <td>src/zipcode.c</td>
+          <td class="DESC">zipcode_read_sector</td>
+          <td class="Q">59</td>
+          <td class="Q">1</td>
+          <td><a href="report-ca8767.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-ca8767.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/c64/cart/mmcreplay.c</td>
+          <td class="DESC">mmcreplay_update_mapper_nolog</td>
+          <td class="Q">776</td>
+          <td class="Q">1</td>
+          <td><a href="report-98b72a.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-98b72a.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">705</td>
+          <td class="Q">1</td>
+          <td><a href="report-1aabf2.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-1aabf2.html" -->
+        <tr class="bt_logic_error_result_of_operation_is_garbage_or_undefined">
+          <td class="DESC">Logic error</td>
+          <td class="DESC">Result of operation is garbage or undefined</td>
+          <td>src/vicii/vicii-sprites.c</td>
+          <td class="DESC">draw_hires_sprite_expanded</td>
+          <td class="Q">648</td>
+          <td class="Q">39</td>
+          <td><a href="report-ed2083.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-ed2083.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">749</td>
+          <td class="Q">1</td>
+          <td><a href="report-e599eb.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-e599eb.html" -->
+        <tr class="bt_dead_store_dead_nested_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead nested assignment</td>
+          <td>src/diskimage/fsimage-probe.c</td>
+          <td class="DESC">disk_image_check_for_d4m</td>
+          <td class="Q">649</td>
+          <td class="Q">1</td>
+          <td><a href="report-39cf52.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-39cf52.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">669</td>
+          <td class="Q">1</td>
+          <td><a href="report-ecbdcd.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-ecbdcd.html" -->
+        <tr class="bt_dead_store_dead_nested_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead nested assignment</td>
+          <td>src/monitor/mon_breakpoint.c</td>
+          <td class="DESC">mon_breakpoint_delete_checkpoint</td>
+          <td class="Q">400</td>
+          <td class="Q">1</td>
+          <td><a href="report-c387d9.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-c387d9.html" -->
+        <tr class="bt_dead_store_dead_increment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead increment</td>
+          <td>src/plus4/ted-fetch.c</td>
+          <td class="DESC">ted_fetch_alarm_handler</td>
+          <td class="Q">225</td>
+          <td class="Q">1</td>
+          <td><a href="report-339086.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-339086.html" -->
+        <tr class="bt_dead_store_dead_nested_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead nested assignment</td>
+          <td>src/arch/sdl/menu_help.c</td>
+          <td class="DESC">show_text</td>
+          <td class="Q">249</td>
+          <td class="Q">1</td>
+          <td><a href="report-42ee96.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-42ee96.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/monitor/mon_breakpoint.c</td>
+          <td class="DESC">mon_breakpoint_switch_checkpoint</td>
+          <td class="Q">280</td>
+          <td class="Q">1</td>
+          <td><a href="report-ce0569.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-ce0569.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/c1541.c</td>
+          <td class="DESC">extract_cmd_common</td>
+          <td class="Q">2882</td>
+          <td class="Q">1</td>
+          <td><a href="report-be83b0.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-be83b0.html" -->
+        <tr class="bt_dead_store_dead_increment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead increment</td>
+          <td>src/core/fmopl.c</td>
+          <td class="DESC">OPLCreate</td>
+          <td class="Q">1543</td>
+          <td class="Q">1</td>
+          <td><a href="report-8607aa.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-8607aa.html" -->
+        <tr class="bt_dead_store_dead_nested_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead nested assignment</td>
+          <td>src/diskimage/fsimage-probe.c</td>
+          <td class="DESC">disk_image_check_for_d1m</td>
+          <td class="Q">562</td>
+          <td class="Q">1</td>
+          <td><a href="report-cdd438.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-cdd438.html" -->
+        <tr class="bt_dead_store_dead_initialization">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead initialization</td>
+          <td>src/c1541.c</td>
+          <td class="DESC">list_cmd</td>
+          <td class="Q">3301</td>
+          <td class="Q">1</td>
+          <td><a href="report-dee941.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-dee941.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">709</td>
+          <td class="Q">1</td>
+          <td><a href="report-401ce1.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-401ce1.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/c64/cart/mmcreplay.c</td>
+          <td class="DESC">mmcreplay_update_mapper_nolog</td>
+          <td class="Q">902</td>
+          <td class="Q">1</td>
+          <td><a href="report-f2173c.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-f2173c.html" -->
+        <tr class="bt_dead_store_dead_increment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead increment</td>
+          <td>src/video/render2x2.c</td>
+          <td class="DESC">render_08_2x2_04</td>
+          <td class="Q">98</td>
+          <td class="Q">1</td>
+          <td><a href="report-c0ca08.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-c0ca08.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">625</td>
+          <td class="Q">1</td>
+          <td><a href="report-cd8a39.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-cd8a39.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">808</td>
+          <td class="Q">1</td>
+          <td><a href="report-83bab1.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-83bab1.html" -->
+        <tr class="bt_logic_error_dereference_of_null_pointer">
+          <td class="DESC">Logic error</td>
+          <td class="DESC">Dereference of null pointer</td>
+          <td>src/pet/petio.c</td>
+          <td class="DESC">io_source_register</td>
+          <td class="Q">475</td>
+          <td class="Q">4</td>
+          <td><a href="report-e29221.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-e29221.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">649</td>
+          <td class="Q">1</td>
+          <td><a href="report-f46329.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-f46329.html" -->
+        <tr class="bt_dead_store_dead_increment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead increment</td>
+          <td>src/monitor/monitor_binary.c</td>
+          <td class="DESC">monitor_binary_process_mem_get</td>
+          <td class="Q">1405</td>
+          <td class="Q">1</td>
+          <td><a href="report-8df02a.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-8df02a.html" -->
+        <tr class="bt_logic_error_dereference_of_null_pointer">
+          <td class="DESC">Logic error</td>
+          <td class="DESC">Dereference of null pointer</td>
+          <td>src/event.c</td>
+          <td class="DESC">event_snapshot_read_module</td>
+          <td class="Q">1082</td>
+          <td class="Q">24</td>
+          <td><a href="report-802afb.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-802afb.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/monitor/monitor_binary.c</td>
+          <td class="DESC">monitor_binary_process_registers_available</td>
+          <td class="Q">1057</td>
+          <td class="Q">1</td>
+          <td><a href="report-887540.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-887540.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/drive/drive-snapshot.c</td>
+          <td class="DESC">drive_snapshot_write_image_module</td>
+          <td class="Q">855</td>
+          <td class="Q">1</td>
+          <td><a href="report-224d5e.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-224d5e.html" -->
+        <tr class="bt_logic_error_uninitialized_argument_value">
+          <td class="DESC">Logic error</td>
+          <td class="DESC">Uninitialized argument value</td>
+          <td>src/c64/c64rom.c</td>
+          <td class="DESC">c64rom_load_kernal</td>
+          <td class="Q">138</td>
+          <td class="Q">19</td>
+          <td><a href="report-9c084c.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-9c084c.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">577</td>
+          <td class="Q">1</td>
+          <td><a href="report-e36cce.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-e36cce.html" -->
+        <tr class="bt_logic_error_unix_api">
+          <td class="DESC">Logic error</td>
+          <td class="DESC">Unix API</td>
+          <td>src/lib.c</td>
+          <td class="DESC">lib_strdup</td>
+          <td class="Q">702</td>
+          <td class="Q">5</td>
+          <td><a href="report-ffb33a.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-ffb33a.html" -->
+        <tr class="bt_logic_error_garbage_return_value">
+          <td class="DESC">Logic error</td>
+          <td class="DESC">Garbage return value</td>
+          <td>src/vic20/vic20mem.c</td>
+          <td class="DESC">mem_bank_from_name</td>
+          <td class="Q">638</td>
+          <td class="Q">13</td>
+          <td><a href="report-a13476.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-a13476.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/mididrv/midi-osx-drv.c</td>
+          <td class="DESC">mididrv_out</td>
+          <td class="Q">429</td>
+          <td class="Q">1</td>
+          <td><a href="report-d5cf9c.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-d5cf9c.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/c64/cart/mmcreplay.c</td>
+          <td class="DESC">mmcreplay_update_mapper_nolog</td>
+          <td class="Q">898</td>
+          <td class="Q">1</td>
+          <td><a href="report-efe7a2.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-efe7a2.html" -->
+        <tr class="bt_dead_store_dead_initialization">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead initialization</td>
+          <td>src/video/render1x1crt.c</td>
+          <td class="DESC">render_generic_1x1_crt</td>
+          <td class="Q">162</td>
+          <td class="Q">1</td>
+          <td><a href="report-c0fe42.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-c0fe42.html" -->
+        <tr class="bt_logic_error_dereference_of_null_pointer">
+          <td class="DESC">Logic error</td>
+          <td class="DESC">Dereference of null pointer</td>
+          <td>src/plus4/plus4io.c</td>
+          <td class="DESC">io_source_register</td>
+          <td class="Q">435</td>
+          <td class="Q">4</td>
+          <td><a href="report-79b930.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-79b930.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sound.c</td>
+          <td class="DESC">sound_flush</td>
+          <td class="Q">1371</td>
+          <td class="Q">1</td>
+          <td><a href="report-ac4906.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-ac4906.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/gfxoutputdrv/ffmpegdrv.c</td>
+          <td class="DESC">ffmpegmovie_encode_audio</td>
+          <td class="Q">568</td>
+          <td class="Q">1</td>
+          <td><a href="report-3f2352.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-3f2352.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/tape/tap.c</td>
+          <td class="DESC">tap_cbm_skip_pilot</td>
+          <td class="Q">395</td>
+          <td class="Q">1</td>
+          <td><a href="report-b46025.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-b46025.html" -->
+        <tr class="bt_logic_error_dereference_of_null_pointer">
+          <td class="DESC">Logic error</td>
+          <td class="DESC">Dereference of null pointer</td>
+          <td>src/cbm2/cbm2io.c</td>
+          <td class="DESC">io_source_register</td>
+          <td class="Q">459</td>
+          <td class="Q">4</td>
+          <td><a href="report-f55876.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-f55876.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">781</td>
+          <td class="Q">1</td>
+          <td><a href="report-69be5a.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-69be5a.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">673</td>
+          <td class="Q">1</td>
+          <td><a href="report-055fc9.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-055fc9.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/tapeport/tapecart.c</td>
+          <td class="DESC">cmdmode_dispatch_command</td>
+          <td class="Q">1339</td>
+          <td class="Q">1</td>
+          <td><a href="report-85b6ee.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-85b6ee.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">643</td>
+          <td class="Q">1</td>
+          <td><a href="report-8ff96f.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-8ff96f.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">623</td>
+          <td class="Q">1</td>
+          <td><a href="report-b11941.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-b11941.html" -->
+        <tr class="bt_dead_store_dead_nested_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead nested assignment</td>
+          <td>src/pet/petrom.c</td>
+          <td class="DESC">petrom_load_6809rom</td>
+          <td class="Q">780</td>
+          <td class="Q">1</td>
+          <td><a href="report-f6c247.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-f6c247.html" -->
+        <tr class="bt_logic_error_dereference_of_null_pointer">
+          <td class="DESC">Logic error</td>
+          <td class="DESC">Dereference of null pointer</td>
+          <td>src/vic20/vic20io.c</td>
+          <td class="DESC">io_source_register</td>
+          <td class="Q">418</td>
+          <td class="Q">4</td>
+          <td><a href="report-5f1a54.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-5f1a54.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">825</td>
+          <td class="Q">1</td>
+          <td><a href="report-844645.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-844645.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">835</td>
+          <td class="Q">1</td>
+          <td><a href="report-4a8973.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-4a8973.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">707</td>
+          <td class="Q">1</td>
+          <td><a href="report-aa45d6.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-aa45d6.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/mididrv/midi-osx-drv.c</td>
+          <td class="DESC">message_len</td>
+          <td class="Q">206</td>
+          <td class="Q">1</td>
+          <td><a href="report-295f73.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-295f73.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">763</td>
+          <td class="Q">1</td>
+          <td><a href="report-643bb1.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-643bb1.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/drive/drive-snapshot.c</td>
+          <td class="DESC">drive_snapshot_read_module</td>
+          <td class="Q">546</td>
+          <td class="Q">1</td>
+          <td><a href="report-f1d2aa.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-f1d2aa.html" -->
+        <tr class="bt_logic_error_garbage_return_value">
+          <td class="DESC">Logic error</td>
+          <td class="DESC">Garbage return value</td>
+          <td>src/resid/spline.h</td>
+          <td class="DESC">x</td>
+          <td class="Q">190</td>
+          <td class="Q">14</td>
+          <td><a href="report-4f5983.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-4f5983.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/monitor/asm6809.c</td>
+          <td class="DESC">asm_addr_mode_get_size</td>
+          <td class="Q">944</td>
+          <td class="Q">1</td>
+          <td><a href="report-af6187.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-af6187.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/c64/cart/mmcreplay.c</td>
+          <td class="DESC">mmcreplay_update_mapper_nolog</td>
+          <td class="Q">653</td>
+          <td class="Q">1</td>
+          <td><a href="report-8fb489.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-8fb489.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">806</td>
+          <td class="Q">1</td>
+          <td><a href="report-b06c2e.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-b06c2e.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">675</td>
+          <td class="Q">1</td>
+          <td><a href="report-73ea05.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-73ea05.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/diskimage/fsimage-probe.c</td>
+          <td class="DESC">disk_image_check_for_d71</td>
+          <td class="Q">203</td>
+          <td class="Q">1</td>
+          <td><a href="report-5ebab5.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-5ebab5.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">787</td>
+          <td class="Q">1</td>
+          <td><a href="report-cf76cf.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-cf76cf.html" -->
+        <tr class="bt_logic_error_uninitialized_argument_value">
+          <td class="DESC">Logic error</td>
+          <td class="DESC">Uninitialized argument value</td>
+          <td>src/monitor/mon_assemble6809.c</td>
+          <td class="DESC">mon_assemble_instr</td>
+          <td class="Q">236</td>
+          <td class="Q">25</td>
+          <td><a href="report-3d97fb.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-3d97fb.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">783</td>
+          <td class="Q">1</td>
+          <td><a href="report-37da6b.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-37da6b.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/tape/tap.c</td>
+          <td class="DESC">tap_cbm_skip_pilot</td>
+          <td class="Q">413</td>
+          <td class="Q">1</td>
+          <td><a href="report-6bbbd3.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-6bbbd3.html" -->
+        <tr class="bt_logic_error_dereference_of_null_pointer">
+          <td class="DESC">Logic error</td>
+          <td class="DESC">Dereference of null pointer</td>
+          <td>src/c64/c64io.c</td>
+          <td class="DESC">io_source_register</td>
+          <td class="Q">472</td>
+          <td class="Q">4</td>
+          <td><a href="report-d42446.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-d42446.html" -->
+        <tr class="bt_logic_error_dangerous_construct_in_a_vforked_process">
+          <td class="DESC">Logic error</td>
+          <td class="DESC">Dangerous construct in a vforked process</td>
+          <td>src/arch/shared/archdep_spawn.c</td>
+          <td class="DESC">archdep_spawn</td>
+          <td class="Q">106</td>
+          <td class="Q">9</td>
+          <td><a href="report-dcaf7d.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-dcaf7d.html" -->
+        <tr class="bt_dead_store_dead_nested_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead nested assignment</td>
+          <td>src/diskimage/fsimage-probe.c</td>
+          <td class="DESC">disk_image_check_for_d82</td>
+          <td class="Q">384</td>
+          <td class="Q">1</td>
+          <td><a href="report-9d2f19.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-9d2f19.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/c64/psid.c</td>
+          <td class="DESC">mus_extract_credits</td>
+          <td class="Q">864</td>
+          <td class="Q">1</td>
+          <td><a href="report-25bbf3.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-25bbf3.html" -->
+        <tr class="bt_logic_error_dereference_of_null_pointer">
+          <td class="DESC">Logic error</td>
+          <td class="DESC">Dereference of null pointer</td>
+          <td>src/printerdrv/driver-select.c</td>
+          <td class="DESC">driver_select_register</td>
+          <td class="Q">217</td>
+          <td class="Q">5</td>
+          <td><a href="report-20a62b.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-20a62b.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/c64/cart/mmcreplay.c</td>
+          <td class="DESC">mmcreplay_update_mapper_nolog</td>
+          <td class="Q">777</td>
+          <td class="Q">1</td>
+          <td><a href="report-217102.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-217102.html" -->
+        <tr class="bt_dead_store_dead_nested_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead nested assignment</td>
+          <td>src/diskimage/fsimage-probe.c</td>
+          <td class="DESC">disk_image_check_for_d71</td>
+          <td class="Q">217</td>
+          <td class="Q">1</td>
+          <td><a href="report-1ef0b0.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-1ef0b0.html" -->
+        <tr class="bt_logic_error_assigned_value_is_garbage_or_undefined">
+          <td class="DESC">Logic error</td>
+          <td class="DESC">Assigned value is garbage or undefined</td>
+          <td>src/vdrive/vdrive.c</td>
+          <td class="DESC">vdrive_set_disk_geometry</td>
+          <td class="Q">697</td>
+          <td class="Q">25</td>
+          <td><a href="report-6f50d5.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-6f50d5.html" -->
+        <tr class="bt_dead_store_dead_initialization">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead initialization</td>
+          <td>src/video/render1x1pal.c</td>
+          <td class="DESC">render_generic_1x1_pal</td>
+          <td class="Q">165</td>
+          <td class="Q">1</td>
+          <td><a href="report-e26c3f.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-e26c3f.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">767</td>
+          <td class="Q">1</td>
+          <td><a href="report-e1c547.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-e1c547.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">697</td>
+          <td class="Q">1</td>
+          <td><a href="report-8d6fb2.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-8d6fb2.html" -->
+        <tr class="bt_dead_store_dead_initialization">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead initialization</td>
+          <td>src/video/render1x1ntsc.c</td>
+          <td class="DESC">render_generic_1x1_ntsc</td>
+          <td class="Q">170</td>
+          <td class="Q">1</td>
+          <td><a href="report-1ae47f.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-1ae47f.html" -->
+        <tr class="bt_logic_error_result_of_operation_is_garbage_or_undefined">
+          <td class="DESC">Logic error</td>
+          <td class="DESC">Result of operation is garbage or undefined</td>
+          <td>src/viciivsid/viciivsid-sprites.c</td>
+          <td class="DESC">draw_hires_sprite_expanded</td>
+          <td class="Q">649</td>
+          <td class="Q">39</td>
+          <td><a href="report-d6342d.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-d6342d.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">641</td>
+          <td class="Q">1</td>
+          <td><a href="report-f383f8.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-f383f8.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">802</td>
+          <td class="Q">1</td>
+          <td><a href="report-0d36ab.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-0d36ab.html" -->
+        <tr class="bt_dead_store_dead_nested_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead nested assignment</td>
+          <td>src/c64/cart/c64cart.c</td>
+          <td class="DESC">try_cartridge_attach</td>
+          <td class="Q">343</td>
+          <td class="Q">1</td>
+          <td><a href="report-bd1033.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-bd1033.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/plus4/ted-mem.c</td>
+          <td class="DESC">ted_local_store_vbank_16k</td>
+          <td class="Q">178</td>
+          <td class="Q">1</td>
+          <td><a href="report-8135ad.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-8135ad.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/lib/p64/p64.c</td>
+          <td class="DESC">P64ImageWriteToStream</td>
+          <td class="Q">1120</td>
+          <td class="Q">1</td>
+          <td><a href="report-ff5e33.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-ff5e33.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">677</td>
+          <td class="Q">1</td>
+          <td><a href="report-15f640.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-15f640.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/raster/raster-resources.c</td>
+          <td class="DESC">set_video_cache_enabled</td>
+          <td class="Q">69</td>
+          <td class="Q">1</td>
+          <td><a href="report-23874b.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-23874b.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/core/t6721.c</td>
+          <td class="DESC">render_subframe</td>
+          <td class="Q">420</td>
+          <td class="Q">1</td>
+          <td><a href="report-ccbd25.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-ccbd25.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">751</td>
+          <td class="Q">1</td>
+          <td><a href="report-268a4f.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-268a4f.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">645</td>
+          <td class="Q">1</td>
+          <td><a href="report-6a25b5.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-6a25b5.html" -->
+        <tr class="bt_dead_store_dead_initialization">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead initialization</td>
+          <td>src/video/render1x1pal.c</td>
+          <td class="DESC">render_generic_1x1_pal</td>
+          <td class="Q">164</td>
+          <td class="Q">1</td>
+          <td><a href="report-a091b6.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-a091b6.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/mididrv/midi-osx-drv.c</td>
+          <td class="DESC">message_len</td>
+          <td class="Q">197</td>
+          <td class="Q">1</td>
+          <td><a href="report-035e97.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-035e97.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/drive/drive-snapshot.c</td>
+          <td class="DESC">drive_snapshot_read_image_module</td>
+          <td class="Q">994</td>
+          <td class="Q">1</td>
+          <td><a href="report-b9ae97.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-b9ae97.html" -->
+        <tr class="bt_logic_error_uninitialized_argument_value">
+          <td class="DESC">Logic error</td>
+          <td class="DESC">Uninitialized argument value</td>
+          <td>src/monitor/mon_assemble6809.c</td>
+          <td class="DESC">mon_assemble_instr</td>
+          <td class="Q">236</td>
+          <td class="Q">26</td>
+          <td><a href="report-2570aa.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-2570aa.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/diskimage/fsimage-probe.c</td>
+          <td class="DESC">disk_image_check_for_d64</td>
+          <td class="Q">93</td>
+          <td class="Q">1</td>
+          <td><a href="report-c7f312.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-c7f312.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">647</td>
+          <td class="Q">1</td>
+          <td><a href="report-824e7a.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-824e7a.html" -->
+        <tr class="bt_logic_error_dereference_of_null_pointer">
+          <td class="DESC">Logic error</td>
+          <td class="DESC">Dereference of null pointer</td>
+          <td>src/userport/userport.c</td>
+          <td class="DESC">userport_detach_devices</td>
+          <td class="Q">170</td>
+          <td class="Q">16</td>
+          <td><a href="report-ca165f.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-ca165f.html" -->
+        <tr class="bt_dead_store_dead_nested_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead nested assignment</td>
+          <td>src/diskimage/fsimage-probe.c</td>
+          <td class="DESC">disk_image_check_for_d80</td>
+          <td class="Q">342</td>
+          <td class="Q">1</td>
+          <td><a href="report-8b3efd.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-8b3efd.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/video/render2x4.c</td>
+          <td class="DESC">render_24_2x4_04</td>
+          <td class="Q">244</td>
+          <td class="Q">1</td>
+          <td><a href="report-6950e2.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-6950e2.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/mididrv/midi-osx-drv.c</td>
+          <td class="DESC">message_len</td>
+          <td class="Q">192</td>
+          <td class="Q">1</td>
+          <td><a href="report-773056.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-773056.html" -->
+        <tr class="bt_logic_error_result_of_operation_is_garbage_or_undefined">
+          <td class="DESC">Logic error</td>
+          <td class="DESC">Result of operation is garbage or undefined</td>
+          <td>src/monitor/mon_file.c</td>
+          <td class="DESC">mon_file_verify</td>
+          <td class="Q">364</td>
+          <td class="Q">18</td>
+          <td><a href="report-e1ae01.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-e1ae01.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/plus4/ted-mem.c</td>
+          <td class="DESC">ted_local_store_vbank</td>
+          <td class="Q">106</td>
+          <td class="Q">1</td>
+          <td><a href="report-c4cc81.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-c4cc81.html" -->
+        <tr class="bt_dead_store_dead_nested_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead nested assignment</td>
+          <td>src/monitor/mon_breakpoint.c</td>
+          <td class="DESC">mon_breakpoint_switch_checkpoint</td>
+          <td class="Q">291</td>
+          <td class="Q">1</td>
+          <td><a href="report-ffde5e.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-ffde5e.html" -->
+        <tr class="bt_logic_error_result_of_operation_is_garbage_or_undefined">
+          <td class="DESC">Logic error</td>
+          <td class="DESC">Result of operation is garbage or undefined</td>
+          <td>src/c64/cart/blackbox8.c</td>
+          <td class="DESC">blackbox8_config_setup</td>
+          <td class="Q">129</td>
+          <td class="Q">6</td>
+          <td><a href="report-7980d0.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-7980d0.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/c1541.c</td>
+          <td class="DESC">match_sub_pattern</td>
+          <td class="Q">3174</td>
+          <td class="Q">1</td>
+          <td><a href="report-d8fd3c.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-d8fd3c.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/monitor/mon_lex.c</td>
+          <td class="DESC">yylex</td>
+          <td class="Q">3972</td>
+          <td class="Q">1</td>
+          <td><a href="report-0c274c.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-0c274c.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">765</td>
+          <td class="Q">1</td>
+          <td><a href="report-1387a8.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-1387a8.html" -->
+        <tr class="bt_logic_error_division_by_zero">
+          <td class="DESC">Logic error</td>
+          <td class="DESC">Division by zero</td>
+          <td>src/vic20/vic20sound.c</td>
+          <td class="DESC">vic_sound_machine_calculate_samples</td>
+          <td class="Q">291</td>
+          <td class="Q">10</td>
+          <td><a href="report-467d85.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-467d85.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/drive/iec/iec-resources.c</td>
+          <td class="DESC">set_drive_fixed</td>
+          <td class="Q">188</td>
+          <td class="Q">1</td>
+          <td><a href="report-514e08.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-514e08.html" -->
+        <tr class="bt_dead_store_dead_initialization">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead initialization</td>
+          <td>src/c1541.c</td>
+          <td class="DESC">copy_cmd</td>
+          <td class="Q">2115</td>
+          <td class="Q">1</td>
+          <td><a href="report-f711b7.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-f711b7.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">747</td>
+          <td class="Q">1</td>
+          <td><a href="report-cbf0b8.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-cbf0b8.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/core/viacore.c</td>
+          <td class="DESC">viacore_snapshot_read_module</td>
+          <td class="Q">1371</td>
+          <td class="Q">1</td>
+          <td><a href="report-c9a477.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-c9a477.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">810</td>
+          <td class="Q">1</td>
+          <td><a href="report-5f5673.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-5f5673.html" -->
+        <tr class="bt_dead_store_dead_nested_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead nested assignment</td>
+          <td>src/pet/petrom.c</td>
+          <td class="DESC">petrom_load_kernal</td>
+          <td class="Q">614</td>
+          <td class="Q">1</td>
+          <td><a href="report-77ef78.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-77ef78.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/core/ata.c</td>
+          <td class="DESC">seek_sector</td>
+          <td class="Q">239</td>
+          <td class="Q">1</td>
+          <td><a href="report-adadfc.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-adadfc.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/drive/drive-snapshot.c</td>
+          <td class="DESC">drive_snapshot_write_module</td>
+          <td class="Q">245</td>
+          <td class="Q">1</td>
+          <td><a href="report-aab7f8.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-aab7f8.html" -->
+        <tr class="bt_dead_store_dead_increment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead increment</td>
+          <td>src/video/render2x4.c</td>
+          <td class="DESC">render_08_2x4_04</td>
+          <td class="Q">98</td>
+          <td class="Q">1</td>
+          <td><a href="report-dd7489.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-dd7489.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">589</td>
+          <td class="Q">1</td>
+          <td><a href="report-b81580.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-b81580.html" -->
+        <tr class="bt_dead_store_dead_nested_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead nested assignment</td>
+          <td>src/monitor/mon_breakpoint.c</td>
+          <td class="DESC">mon_breakpoint_switch_checkpoint</td>
+          <td class="Q">286</td>
+          <td class="Q">1</td>
+          <td><a href="report-67c482.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-67c482.html" -->
+        <tr class="bt_dead_store_dead_assignment">
+          <td class="DESC">Dead store</td>
+          <td class="DESC">Dead assignment</td>
+          <td>src/sid/sid.c</td>
+          <td class="DESC">sid_sound_machine_calculate_samples</td>
+          <td class="Q">701</td>
+          <td class="Q">1</td>
+          <td><a href="report-dfbd77.html#EndPath">View Report</a></td>
+        </tr>
+<!-- REPORTBUG id="report-dfbd77.html" -->
       </tbody>
     </table>
 <!-- REPORTBUGEND -->
